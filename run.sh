@@ -3,7 +3,9 @@
 if [[ ! -d "/apps/main" ]] || [[ "$rebuild" == "true" ]]; then
     # echo "Cloning github token:${githubtoken}"
 
-    git clone https://${githubusername}:${githubtoken}@github.com/${githubusername}/usafemap.git /apps/main
+    apk add --no-cache ${packages}
+
+    git clone ${giturl} /apps/main
 
     cp -r /apps/linux/node /apps/main/node_modules
 
